@@ -6,6 +6,7 @@
 #    @AUTHOR: SANDRO REGIS CARDOSO
 ##########################################################################################################
 import sys
+from _pyio import __metaclass__
 
 class MetaSingleton(type):
     _name = "meta.singleton"
@@ -25,10 +26,10 @@ class MetaSingleton(type):
             raise BaseException
     
 
-class ArraySingleton(metaclass=MetaSingleton):
+class ArraySingleton(object):
     _name = "array.singleton"
     _description = "Singleton for Array object"
-    
+    __metaclass__ = MetaSingleton
     _list = list
     
     @classmethod
